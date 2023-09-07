@@ -1,0 +1,19 @@
+.navbar { 
+    width: 100%;
+    justify-content: center;
+}
+.d-flex{
+    width: 80%;
+    
+}
+.btnSearch{
+    color: white;
+    border-color: white;
+    
+    
+}
+.btnSearch:hover{
+    background-color:white ;
+    color:  rgb(122, 81, 218);
+    border:  rgb(122, 81, 218);
+}

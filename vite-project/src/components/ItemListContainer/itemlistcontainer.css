@@ -1,0 +1,49 @@
+.containerprimary{
+
+    justify-content: space-between;
+}
+.brand{
+    text-decoration: underline;
+    color:white;
+}
+.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light{
+    background-color: rgb(122, 81, 218);
+    margin: 0px;
+    border: none;
+    padding: 0px;
+    
+
+   
+}
+.container{
+    width: 100%;
+    margin: 0px;
+    background-color: rgb(122, 81, 218);
+  
+
+}
+.me-auto{
+    color: white;
+    background-color:  rgb(122, 81, 218);
+}
+.home{
+    color:white;
+    
+}
+.home:hover{
+    color: rgb(58, 37, 107) ;
+    transform:scale(10px);
+}
+.quienessomos{
+    color:white;
+}
+.quienssomos:hover{
+    color: rgb(58, 37, 107) ;
+    
+}
+.productos .dropdown-item {
+    color: rgb(122, 81, 218); ; /* Establece el color del texto en blanco */
+    
+  }
+  .productos > a {
+    color: white !important; /* Establece el color

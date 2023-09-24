@@ -1,45 +1,33 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import './itemlistcontainer.css';
-
-
-
+import React, { useEffect, useState } from "react";
+import ItemList from "./ItemList.jsx";
 
 function ItemListContainer() {
-    return (
-        <div className='containerprimary'>
-            <Navbar expand="lg" className="bg-body-tertiary"  >
-                <Container className='container'>
-                    <Navbar.Brand href="#home" className='brand'>Jaqaar</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="me-auto">
-                            <Nav.Link href="#home" className='home'>Home</Nav.Link>
-                            <Nav.Link href="#link" className='quienessomos'>Quienes somos</Nav.Link>
-                            <NavDropdown className='productos' title="Productos" id="basic-nav-dropdown" style={{ color: 'white' }} >
-                                <NavDropdown.Item className="accesorios" href="#action/3.1">Accesorios</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2" className='cascos'>
-                                    Cascos
-                                </NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3" className='herramientas'>Herramientas</NavDropdown.Item>
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+ 
+  useEffect(() => {
+    const requestFakeStoreAPI = () =>
+      fetch('https://fakestoreapi.com/products')
+        .then((res) => res.json())
+        .catch((err) => console.log(err));
 
+    requestFakeStoreAPI()
+      .then((res) => {
+        setProducts(res);
+        setIsLoading(false);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
-
-                            </NavDropdown>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
-
-           
-
-            </Navbar>
-          
-        </div>
-    );
+  return (
+    <div>
+      {isLoading ? (
+        <p>Cargando...</p>
+      ) : (
+        <ItemList products={products} />
+      )}
+    </div>
+  );
 }
-
-//rgb(122, 81, 218);
 
 export default ItemListContainer;

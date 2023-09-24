@@ -1,20 +1,42 @@
-import { Navbar } from "react-bootstrap";
+
 import "./App.css";
-import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+
 import NavSearch from "./components/Navbar/Navbar";
 import Cart from './components/CartWidget/CartWidget'
+import React, { useEffect, useState } from "react";
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+
+
 
 
 
 function App() {
+  const [items, setItems] = useState([]);
+  useEffect(() => {
 
+    const fetchData = () => {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(mockData);
+        }, 2000);
+      });
+    };
+
+    fetchData().then((data) => {
+      setItems(data);
+    });
+  }, []); 
   return (
     <div>
       <div className="navbar">
-        <ItemListContainer />
+      <NavSearch />
         <Cart/>
-        <NavSearch />
-      
+        
+      </div>
+      <div>
+        <ItemListContainer />
+       
+
       </div>
 
     </div>

@@ -1,46 +1,23 @@
-
 import "./App.css";
-
-import NavSearch from "./components/Navbar/Navbar";
-import Cart from './components/CartWidget/CartWidget'
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
-
-
-
-
+import NavSearch from "./components/Navbar/Navbar";
+import Cart from './components/CartWidget/CartWidget';
 
 function App() {
-  const [items, setItems] = useState([]);
-  useEffect(() => {
+  const [cartItemCount, setCartItemCount] = useState(0);
 
-    const fetchData = () => {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve(mockData);
-        }, 2000);
-      });
-    };
-
-    fetchData().then((data) => {
-      setItems(data);
-    });
-  }, []); 
   return (
     <div>
       <div className="navbar">
-      <NavSearch />
-        <Cart/>
-        
+        <NavSearch cartItemCount={cartItemCount} />
+        <Cart itemCount={cartItemCount} />
       </div>
       <div>
-        <ItemListContainer />
-       
-
+        <ItemListContainer setCartItemCount={setCartItemCount} />
       </div>
-
     </div>
-  )
+  );
 }
 
 export default App;

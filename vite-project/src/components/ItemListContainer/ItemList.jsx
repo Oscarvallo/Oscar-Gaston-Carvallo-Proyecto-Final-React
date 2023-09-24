@@ -1,19 +1,19 @@
 import React from "react";
+import ProductCard from "../ProductCard/ProductCard";
 
-
-function ItemList({ products }) {
+function ItemList({ products, onAddToCart }) {
   return (
     <div>
       <h2>Lista de Productos</h2>
-      <ul>
+      <div className="product-list">
         {products.map((product) => (
-          <li key={product.id}>
-            <h3>{product.title}</h3>
-            <p>Precio: ${product.price}</p>
-            <img src={product.image} alt={product.title} />
-          </li>
+          <ProductCard
+            key={product.id}
+            product={product}
+            onAddToCart={onAddToCart}
+          />
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

@@ -1,17 +1,14 @@
-import {BsFillCartCheckFill} from 'react-icons/bs'
+import React from "react";
+import { BsFillCartCheckFill } from "react-icons/bs";
 import './cartwidget.css';
 
-
-
-
-const Cart = ({ itemCount }) => {
+const CartWidget = ({ itemCount }) => {
   return (
     <div className='containerCart' >
       <BsFillCartCheckFill className='Cart'/>
-      <span className="item-count">{itemCount}
-        1
-      </span>
+      <span className="item-count">{itemCount}</span>
     </div>
   )
 }
-export default Cart;
+
+export default CartWidget;

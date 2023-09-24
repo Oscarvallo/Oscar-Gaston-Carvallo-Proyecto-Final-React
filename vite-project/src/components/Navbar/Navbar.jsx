@@ -24,13 +24,13 @@ function NavSearch() {
               <Nav.Link href="#action1">Inicio</Nav.Link>
              
               <NavDropdown title="Productos" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+                <NavDropdown.Item href="#action3">Todos los productos</NavDropdown.Item>
                 <NavDropdown.Item href="#action4">
-                  Another action
+                Bolsos
                 </NavDropdown.Item>
-                <NavDropdown.Divider />
+                
                 <NavDropdown.Item href="#action5">
-                  Something else here
+                  Remeras
                 </NavDropdown.Item>
               </NavDropdown>
               <Nav.Link href="#action2">¿Quienes somos?</Nav.Link>

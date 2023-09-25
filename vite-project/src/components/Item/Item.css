@@ -1,14 +1,30 @@
-.imgCard{
-    width: 200px;
-    height: 200px;
+.item{
+    text-align: center;
+    display: inline-block;
+  
+}
+
+.card{
+
+    border:ridge 5px ;
+    width: 300px;
+    height: 400px;
+    align-items: center;
+    margin: 30px;
+    
 
 }
-.titleCard{
-    width: 200px;
-    height: 100px;
+.imgCard{
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+
 }
-.descriptionCard{
-    margin-top: 40px;
-    width: 200px;
-    height: 200px;
-}
+
+ .titleCard{
+    font-size: 20px;
+ }
+ .agregarButton{
+    margin-top: 20px;
+    margin-bottom: 20px;
+ }

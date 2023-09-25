@@ -3,7 +3,7 @@ import Item from '../Item/Item';
 import './Itemlist.css'
 
 const ItemList = ({ items }) => {
-  console.log(items)
+
   return (
     <div >
       {items.map((item) => (

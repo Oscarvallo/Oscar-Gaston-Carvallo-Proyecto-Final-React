@@ -1,15 +1,20 @@
-const ItemList = ({ children }) => {
+import React from 'react';
+import Item from '../Item/Item'; // Asegúrate de que la ruta sea correcta
+
+const ItemList = ({ items }) => {
+  console.log(items)
   return (
-    <div
-      style={{
-        padding: "10px 25px",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        flexWrap: "wrap",
-      }}
-    >
-      {children}
+    <div>
+      {items.map((item) => (
+        <Item
+          key={item.id}
+          id={item.id}
+          title={item.title}
+          description={item.description}
+          price={item.price}
+          image={item.image}
+        />
+      ))}
     </div>
   );
 };

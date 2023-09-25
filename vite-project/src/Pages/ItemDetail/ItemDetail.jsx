@@ -25,10 +25,9 @@ const ItemDetail = () => {
   return (
   <div>
     <Layout />
-    <div className='card
-'>
+    <div className='cardItemDetail'>
       {product ? (
-        <div className='cardItemDetail'>
+        <div className='cardContainer'>
           <img className='imgCardItemDetail' src={product.image} alt={product.title} />
           <h2 className='titleCardItemDetail'>{product.title}</h2>
           <h4 className='descriptionCardItemDetail'>{product.description}</h4>

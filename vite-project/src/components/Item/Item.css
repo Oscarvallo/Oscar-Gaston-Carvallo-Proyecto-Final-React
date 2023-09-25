@@ -6,7 +6,7 @@
 
 .card{
 
-    border:ridge 5px ;
+    border:ridge 1px; ;
     width: 300px;
     height: 400px;
     align-items: center;

@@ -23,8 +23,7 @@ function NavSearch() {
               <Link to="/" className="nav-link">Inicio</Link> {/* Utiliza Link en lugar de href */}
               <NavDropdown title="Productos" id="navbarScrollingDropdown">
                 <Link to="/products" className="dropdown-item">Productos</Link> {/* Utiliza Link en lugar de href */}
-                <Link to="/checkout" className="dropdown-item">Servicios</Link> {/* Utiliza Link en lugar de href */}
-                <Link to="/services" className="dropdown-item"></Link> {/* Utiliza Link en lugar de href */}
+                <Link to="/checkout" className="dropdown-item">Servicios</Link> {/* Utiliza Link en lugar de href */} 
               </NavDropdown>
               <Link to="/about" className="nav-link">¿Quienes somos?</Link> {/* Utiliza Link en lugar de href */}
             </Nav>

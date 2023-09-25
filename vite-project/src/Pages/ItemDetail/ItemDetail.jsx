@@ -1,8 +1,12 @@
 import React from 'react'
+import Layout from '../../components/Layout/Layout'
 
 const ItemDetail = () => {
   return (
-    <div>ItemDetail</div>
+  
+    <div>  <Layout/>
+    <h1>Item Detail</h1>
+    </div>
   )
 }
 

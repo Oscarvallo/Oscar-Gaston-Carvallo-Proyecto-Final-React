@@ -1,0 +1,14 @@
+.imgCard{
+    width: 200px;
+    height: 200px;
+
+}
+.titleCard{
+    width: 200px;
+    height: 100px;
+}
+.descriptionCard{
+    margin-top: 40px;
+    width: 200px;
+    height: 200px;
+}

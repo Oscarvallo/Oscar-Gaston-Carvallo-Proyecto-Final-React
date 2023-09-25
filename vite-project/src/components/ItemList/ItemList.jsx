@@ -1,10 +1,11 @@
 import React from 'react';
-import Item from '../Item/Item'; // Asegúrate de que la ruta sea correcta
+import Item from '../Item/Item'; 
+import './Itemlist.css'
 
 const ItemList = ({ items }) => {
   console.log(items)
   return (
-    <div>
+    <div >
       {items.map((item) => (
         <Item
           key={item.id}

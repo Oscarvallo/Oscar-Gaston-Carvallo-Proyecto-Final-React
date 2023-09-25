@@ -25,20 +25,8 @@ const Home = () => {
   return (
     <Layout>
       <ItemList items={productos}>
-        {isLoading ? (
-          <p>Cargando . . .</p>
-        ) : (
-          productos.map((prod) => (
-            <Item
-              key={prod.id}
-              id={prod.id}
-              title={prod.title}
-              description={prod.description}
-              price={prod.price}
-              image={prod.image}
-            />
-          ))
-        )}
+       
+          
       </ItemList>
     </Layout>
   );

@@ -1,19 +1,18 @@
-import './navbar.css'
-import Button from 'react-bootstrap/Button';
+import React from 'react';
+import './navbar.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-
-
-
+import { Link } from 'react-router-dom';
+import CartWidget from '../CartWidget/CartWidget';
 
 function NavSearch() {
-    return (
-        <div>
-        <Navbar expand="lg" className="bg-body-tertiary">
+  return (
+    <div>
+      <Navbar expand="lg" className="bg-body-tertiary">
         <Container fluid>
-          <Navbar.Brand href="#">Jaqaar</Navbar.Brand>
+          <Link to="/" className="navbar-brand">Jaqaar</Link> {/* Utiliza Link en lugar de href */}
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -21,30 +20,21 @@ function NavSearch() {
               style={{ maxHeight: '100px' }}
               navbarScroll
             >
-              <Nav.Link href="#action1">Inicio</Nav.Link>
-             
+              <Link to="/" className="nav-link">Inicio</Link> {/* Utiliza Link en lugar de href */}
               <NavDropdown title="Productos" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="#action3">Todos los productos</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">
-                Bolsos
-                </NavDropdown.Item>
-                
-                <NavDropdown.Item href="#action5">
-                  Remeras
-                </NavDropdown.Item>
+                <Link to="/products" className="dropdown-item">Productos</Link> {/* Utiliza Link en lugar de href */}
+                <Link to="/checkout" className="dropdown-item">Servicios</Link> {/* Utiliza Link en lugar de href */}
+                <Link to="/services" className="dropdown-item"></Link> {/* Utiliza Link en lugar de href */}
               </NavDropdown>
-              <Nav.Link href="#action2">¿Quienes somos?</Nav.Link>
-              <Nav.Link href="#" disabled>
-             Usuarios
-              </Nav.Link>
+              <Link to="/about" className="nav-link">¿Quienes somos?</Link> {/* Utiliza Link en lugar de href */}
             </Nav>
-            
           </Navbar.Collapse>
+          <CartWidget/>
         </Container>
       </Navbar>
-     
-    </div>  
-    )
+ 
+    </div>
+  );
 }
 
 export default NavSearch;

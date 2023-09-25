@@ -1,0 +1,5 @@
+export {default as HomePage} from './Home/Home'
+export {default as ItemDetailPage} from './ItemDetail/ItemDetail'
+export {default as CheckoutPage} from './Checkout/Checkout'
+export {default as AboutPage} from './About/About'
+export {default as ProductsPage} from './Products/Products'

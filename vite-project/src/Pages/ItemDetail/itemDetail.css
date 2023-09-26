@@ -1,16 +1,19 @@
+
+
 .cardItemDetail{
     width: 50%;
     height: 50%;
     text-align: center;
-    
+
 
 }
 .cardContainer{
-    justify-content: center;
-  
-    align-items: center;
     border: solid 2px;
+    margin: 20px 20px 20px ;
 }
 .imgCardItemDetail{
     width: 250px;
+}
+.descriptionCardItemDetail{
+    font-size: 18px;
 }

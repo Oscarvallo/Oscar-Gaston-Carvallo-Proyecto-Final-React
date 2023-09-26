@@ -28,17 +28,18 @@ const Cart = () => {
       <Table responsive>
         <thead>
           <tr>
-            <th></th>
             <th>Producto</th>
+            <th>Precio unitario</th>
             <th>Cantidad</th>
-            <th>Precio</th>
+            <th>Precio final</th>
+            <th> </th>
           
           </tr>
         </thead>
         <tbody>
           {Object.values(cartItems).map((item) => (
             <tr  key={item.id}>
-              <td>
+              <td  className="tableCart">
                 <img  src={item.image} alt={item.title} />
                 {item.title}
               </td>

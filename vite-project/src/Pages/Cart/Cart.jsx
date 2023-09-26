@@ -5,32 +5,38 @@ import Layout from "../../components/Layout/Layout";
 import Table from 'react-bootstrap/Table';
 
 const Cart = () => {
-  const { cartItems, updateCartItemQuantity, clearCart } = useCart(); // Obtén datos del carrito desde el contexto
+  const { cartItems, addToCart, removeFromCart, getTotalItems, clearCart } = useCart(); // Obtén datos del carrito desde el contexto
 
   const calculateTotalPrice = () => {
     // Calcula el precio total de los productos en el carrito
-    return cartItems.reduce(
+    return Object.values(cartItems).reduce(
       (total, item) => total + item.price * item.quantity,
       0
     );
   };
 
+  const handleClearCart = () => {
+    // Llama a la función clearCart para vaciar el carrito
+    clearCart();
+  };
+
   return (
+    <div> <Layout/>
     <div className="cart">
-      <Layout/>
+      
       <h2>Carrito de Compras</h2>
       <Table responsive>
         <thead>
           <tr>
             <th></th>
             <th>Producto</th>
-            <th>Precio</th>
             <th>Cantidad</th>
-            <th>Total</th>
+            <th>Precio</th>
+          
           </tr>
         </thead>
-        <tbody >
-          {cartItems.map((item) => (
+        <tbody>
+          {Object.values(cartItems).map((item) => (
             <tr  key={item.id}>
               <td>
                 <img  src={item.image} alt={item.title} />
@@ -39,22 +45,15 @@ const Cart = () => {
               <td >${item.price}</td>
               <td>
                 <button
-                  onClick={() =>
-                    updateCartItemQuantity(item.id, item.quantity + 1)
-                  }
+                  onClick={() => removeFromCart(item.id)}
                 >
-                  +
+                  -
                 </button>
                 {item.quantity}
                 <button
-                  onClick={() =>
-                    updateCartItemQuantity(
-                      item.id,
-                      item.quantity > 1 ? item.quantity - 1 : 1
-                    )
-                  }
+                  onClick={() => addToCart(item)}
                 >
-                  -
+                  +
                 </button>
               </td>
               <td>${item.price * item.quantity}</td>
@@ -62,9 +61,11 @@ const Cart = () => {
           ))}
         </tbody>
       </Table>
-      <p>Total: ${calculateTotalPrice()}</p>
-      <button onClick={clearCart}>Vaciar Carrito</button>
+      <p>Cantidad de productos seleccionados: {getTotalItems()}</p>
+      <p>Total del carrito: ${calculateTotalPrice()}</p>
+      <button onClick={handleClearCart}>Vaciar Carrito</button>
       <button>Comprar</button>
+    </div>
     </div>
   );
 };

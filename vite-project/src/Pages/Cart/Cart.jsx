@@ -1,7 +1,12 @@
 import React from "react";
 import "./cart.css";
+import { useCart } from "../../components/CartContext/CartContext"; // Importa el hook useCart
+import Layout from "../../components/Layout/Layout";
+import Table from 'react-bootstrap/Table';
 
-const Cart = ({ cartItems, updateCartItemQuantity, clearCart }) => {
+const Cart = () => {
+  const { cartItems, updateCartItemQuantity, clearCart } = useCart(); // Obtén datos del carrito desde el contexto
+
   const calculateTotalPrice = () => {
     // Calcula el precio total de los productos en el carrito
     return cartItems.reduce(
@@ -12,33 +17,51 @@ const Cart = ({ cartItems, updateCartItemQuantity, clearCart }) => {
 
   return (
     <div className="cart">
+      <Layout/>
       <h2>Carrito de Compras</h2>
-      <div className="cart-items">
-        {cartItems.map((item) => (
-          <div className="cart-item" key={item.id}>
-            <h3>{item.title}</h3>
-            <p>Precio: ${item.price}</p>
-            <p>Cantidad: {item.quantity}</p>
-            <button
-              onClick={() =>
-                updateCartItemQuantity(item.id, item.quantity + 1)
-              }
-            >
-              +
-            </button>
-            <button
-              onClick={() =>
-                updateCartItemQuantity(
-                  item.id,
-                  item.quantity > 1 ? item.quantity - 1 : 1
-                )
-              }
-            >
-              -
-            </button>
-          </div>
-        ))}
-      </div>
+      <Table responsive>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody >
+          {cartItems.map((item) => (
+            <tr  key={item.id}>
+              <td>
+                <img  src={item.image} alt={item.title} />
+                {item.title}
+              </td>
+              <td >${item.price}</td>
+              <td>
+                <button
+                  onClick={() =>
+                    updateCartItemQuantity(item.id, item.quantity + 1)
+                  }
+                >
+                  +
+                </button>
+                {item.quantity}
+                <button
+                  onClick={() =>
+                    updateCartItemQuantity(
+                      item.id,
+                      item.quantity > 1 ? item.quantity - 1 : 1
+                    )
+                  }
+                >
+                  -
+                </button>
+              </td>
+              <td>${item.price * item.quantity}</td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
       <p>Total: ${calculateTotalPrice()}</p>
       <button onClick={clearCart}>Vaciar Carrito</button>
       <button>Comprar</button>

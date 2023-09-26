@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { HomePage, ItemDetailPage, AboutPage, CheckoutPage, ProductsPage } from "../Pages";
+import { HomePage, ItemDetailPage, AboutPage, CheckoutPage, ProductsPage, CartPage } from "../Pages";
 
 const Navigation = () => {
   const routes = createBrowserRouter([
@@ -23,6 +23,10 @@ const Navigation = () => {
     {
       path: '/Products',
       element: <ProductsPage />
+    },
+    {
+      path: '/cart',
+      element: <CartPage />
     },
   ]);
 

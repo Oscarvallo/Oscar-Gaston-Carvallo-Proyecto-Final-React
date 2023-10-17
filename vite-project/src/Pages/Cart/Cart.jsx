@@ -21,7 +21,7 @@ const Cart = () => {
   };
 
   return (
-    <div> <Layout/>
+    <div> <Layout> 
     <div className="cart">
       
       <h2>Carrito de Compras</h2>
@@ -67,6 +67,7 @@ const Cart = () => {
       <button onClick={handleClearCart}>Vaciar Carrito</button>
       <button>Comprar</button>
     </div>
+    </Layout>
     </div>
   );
 };

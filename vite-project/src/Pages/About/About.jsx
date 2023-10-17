@@ -3,8 +3,9 @@ import Layout from '../../components/Layout/Layout';
 
 const About = () => {
   return (
-    <div>  <Layout/>
-    <h1>¿Quienes somos?</h1></div>
+    <div>  <Layout>
+    <h1>¿Quienes somos?</h1>
+    </Layout></div>
   )
 }
 

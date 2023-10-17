@@ -41,7 +41,7 @@ const ItemDetail = () => {
 
   return (
     <div className='itemDetailContainer'>
-      <Layout />
+      <Layout> 
       <div className='cardItemDetail'>
         {product ? (
           <div className='cardContainer'>
@@ -57,6 +57,7 @@ const ItemDetail = () => {
           <p>Cargando detalles del producto...</p>
         )}
       </div>
+      </Layout>
     </div>
   );
 };

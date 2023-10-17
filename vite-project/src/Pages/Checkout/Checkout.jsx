@@ -4,8 +4,9 @@ import Layout from '../../components/Layout/Layout'
 const Checkout = () => {
   return (
     <div>
-      <Layout></Layout>
+      <Layout>
       <h1>Servicios</h1>
+      </Layout>
       </div>
   )
 }

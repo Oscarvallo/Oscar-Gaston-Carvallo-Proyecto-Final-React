@@ -9,7 +9,7 @@ import CartWidget from '../CartWidget/CartWidget';
 
 function NavSearch() {
   return (
-    <div>
+    <div className='navSearch'>
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container fluid>
           <Link to="/" className="navbar-brand">Jaqaar</Link> {/* Utiliza Link en lugar de href */}

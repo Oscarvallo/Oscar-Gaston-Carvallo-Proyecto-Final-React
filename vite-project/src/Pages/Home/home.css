@@ -1,0 +1,11 @@
+.containerHome {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el contenedor ocupe al menos la altura de la ventana */
+  }
+  
+  .homeProducts {
+    flex-grow: 1; /* Hace que este div ocupe todo el espacio disponible verticalmente */
+    /* Puedes agregar estilos adicionales a este div si es necesario */
+  }
+  

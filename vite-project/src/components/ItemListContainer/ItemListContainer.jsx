@@ -1,57 +1,43 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { db } from "../../db/db";
 import ItemList from "../ItemList/ItemList";
-import './itemlistcontainer.css'
+import { useParams } from "react-router-dom";
+import {collection, where, query, getDocs} from "firebase/firestore"
 
 const ItemListContainer = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(""); // Estado para la categoría seleccionada
+ const {idCategory} = useParams();
 
   useEffect(() => {
-    // Realiza una solicitud GET a la API de fakestoreapi para obtener productos y categorías
-    axios
-      .get("https://fakestoreapi.com/products")
-      .then((response) => {
-        // Cuando se complete la solicitud, actualiza el estado con los datos de la API
-        setProducts(response.data);
-        setIsLoading(false);
+    const productsRef = collection(db,"products");
+    const categoryQuery = idCategory && query(productsRef,where ("category", "==",idCategory))
+    const queryRef= idCategory? categoryQuery : productsRef
+    getDocs(queryRef).then ((response)=> {
+      const productsData = response.docs.map((productDoc)=>({
+        id: productDoc.id,
+        ...productDoc.data()
+      }))
+      setProducts([...productsData])
+      setIsLoading(false)
 
-        // Obtiene las categorías únicas de los productos
-        const uniqueCategories = [...new Set(response.data.map((product) => product.category))];
-        setCategories(uniqueCategories);
-      })
-      .catch((error) => {
-        console.error("Error al obtener productos:", error);
-      });
-  }, []);
+    })
 
-  // Función para filtrar los productos por categoría seleccionada
-  const filterProductsByCategory = (category) => {
-    setSelectedCategory(category);
-  };
+  }, [idCategory]);
+
+
 
   return (
     <div>
-      {/* Agrega un menú desplegable para seleccionar una categoría */}
-      <select className= "categorySelect"onChange={(e) => filterProductsByCategory(e.target.value)}>
-        <option value="">Todas las categorías</option>
-        {categories.map((category) => (
-          <option key={category} value={category}>
-            {category}
-          </option>
-        ))}
-      </select>
+
 
       {isLoading ? (
         <p>Cargando productos...</p>
       ) : (
-        <ItemList items={selectedCategory ? products.filter((product) => product.category === selectedCategory) : products} />
+        <ItemList items ={products} />
       )}
     </div>
   );
 };
 
 export default ItemListContainer;
- 

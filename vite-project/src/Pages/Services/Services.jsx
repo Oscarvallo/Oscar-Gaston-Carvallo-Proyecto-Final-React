@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../../components/Layout/Layout'
 
-const Checkout = () => {
+const Services = () => {
   return (
     <div>
       <Layout>
@@ -11,4 +11,4 @@ const Checkout = () => {
   )
 }
 
-export default Checkout
+export default Services

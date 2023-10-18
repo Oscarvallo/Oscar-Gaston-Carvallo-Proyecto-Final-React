@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { HomePage, ItemDetailPage, AboutPage, CheckoutPage, ProductsPage, CartPage } from "../Pages";
-import Layout from '../components/Layout/Layout';
+import { HomePage, ItemDetailPage, AboutPage, ServicesPage, ProductsPage, CartPage } from "../Pages";
+
 
 const Navigation = () => {
   const routes = createBrowserRouter([
@@ -14,8 +14,8 @@ const Navigation = () => {
       element: <ItemDetailPage />
     },
     {
-      path: '/checkout',
-      element: <CheckoutPage />
+      path: '/Services',
+      element: <ServicesPage />
     },
     {
       path: '/about',

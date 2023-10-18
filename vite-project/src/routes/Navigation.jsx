@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { HomePage, ItemDetailPage, AboutPage, ServicesPage, ProductsPage, CartPage } from "../Pages";
+import { HomePage, ItemDetailPage, AboutPage, ServicesPage, ProductsPage, CartPage, CategoryPage} from "../Pages";
 
 
 const Navigation = () => {
@@ -29,7 +29,10 @@ const Navigation = () => {
       path: '/cart',
       element: <CartPage />
     },
-    
+    {
+      path: '/categories/:categoryId',
+      element: <CategoryPage />
+    }
   ]);
 
   return (

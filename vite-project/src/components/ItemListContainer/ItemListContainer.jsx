@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../../db/db';
 import ItemList from '../ItemList/ItemList';
+import './itemlistcontainer.css'
 
 const ItemListContainer = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
-  const { idCategory } = useParams();
-  const [selectedCategory, setSelectedCategory] = useState(idCategory || '');
+  const { categoryId } = useParams();
+  const [selectedCategory, setSelectedCategory] = useState(categoryId || '');
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -60,25 +61,20 @@ const ItemListContainer = () => {
 
   return (
     <div>
+      <h3>Nuestras Categorias</h3>
       {isLoading ? (
         <p>Cargando productos...</p>
       ) : (
-        <div  className=''>
-          <select
-            value={selectedCategory}
-            onChange={(e) => {
-              const selectedCategory = e.target.value;
-              setSelectedCategory(selectedCategory);
-            }}
-          >
-            <option value="">Todas las categorías</option>
+        <div>
+          <div className="category-buttons">
             {categories.map((category) => (
-              <option key={category} value={category}>
+              <Link className="category-button" key={category} to={`/categories/${category}`}>
                 {category}
-              </option>
+              </Link>
             ))}
-          </select>
+          </div>
           <ItemList items={products} />
+         
         </div>
       )}
     </div>

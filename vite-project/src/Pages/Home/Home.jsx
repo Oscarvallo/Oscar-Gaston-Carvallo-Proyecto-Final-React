@@ -10,7 +10,7 @@ const Home = () => {
     <div className='containerHome'>
     <Layout>
       <div className='homeProducts'>
-      <ItemListContainer/>
+      <ItemListContainer />
       </div>
       </Layout>
     </div>

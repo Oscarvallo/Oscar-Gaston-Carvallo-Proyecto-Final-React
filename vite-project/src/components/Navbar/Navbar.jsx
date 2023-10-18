@@ -12,7 +12,7 @@ function NavSearch() {
     <div className='navSearch'>
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container fluid>
-          <Link to="/" className="navbar-brand">Jaqaar</Link> {/* Utiliza Link en lugar de href */}
+          <Link to="/" className="navbar-brand">Jaqaar</Link> 
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -20,12 +20,12 @@ function NavSearch() {
               style={{ maxHeight: '100px' }}
               navbarScroll
             >
-              <Link to="/" className="nav-link">Inicio</Link> {/* Utiliza Link en lugar de href */}
+              <Link to="/" className="nav-link">Inicio</Link> 
               <NavDropdown title="Productos" id="navbarScrollingDropdown">
-                <Link to="/products" className="dropdown-item">Productos</Link> {/* Utiliza Link en lugar de href */}
-                <Link to="/services" className="dropdown-item">Servicios</Link> {/* Utiliza Link en lugar de href */} 
+                <Link to="/products" className="dropdown-item">Productos</Link> 
+                <Link to="/services" className="dropdown-item">Servicios</Link>  
               </NavDropdown>
-              <Link to="/about" className="nav-link">¿Quienes somos?</Link> {/* Utiliza Link en lugar de href */}
+              <Link to="/about" className="nav-link">¿Quienes somos?</Link> 
             </Nav>
           </Navbar.Collapse>
           <CartWidget/>

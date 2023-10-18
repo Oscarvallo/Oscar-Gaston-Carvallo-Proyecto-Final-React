@@ -1,10 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import './Item.css';
-import CartContext from "../CartContext/CartContext"; // Sin la extensión de archivo y la ruta completa si está en el mismo directorio
-
- // Reemplaza 'ruta-al-contexto' con la ubicación real de tu contexto de carrito
-
+import CartContext from "../CartContext/CartContext"; 
 const Item = ({ id, title, price, description, image }) => {
   const {cartItems, addToCart } = useContext(CartContext);
 
@@ -42,4 +39,3 @@ const Item = ({ id, title, price, description, image }) => {
 export default Item;
 
 
-//    <h6 className="descriptionCard">{description}</h6>

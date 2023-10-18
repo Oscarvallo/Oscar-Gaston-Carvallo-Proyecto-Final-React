@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Layout from '../../components/Layout/Layout';
-import { collection, doc, getDoc } from 'firebase/firestore'; // Importa las funciones necesarias para Firebase
+import { collection, doc, getDoc } from 'firebase/firestore'; 
 import './itemDetail.css';
 import { useCart } from '../../components/CartContext/CartContext';
-import { db } from '../../db/db'; // Asegúrate de importar tu configuración de Firebase
+import { db } from '../../db/db'; 
+import {Link} from 'react-router-dom'
 
 const ItemDetail = () => {
   const { id } = useParams();
@@ -57,6 +58,7 @@ const ItemDetail = () => {
           <p>Cargando detalles del producto...</p>
         )}
       </div>
+      <Link to="/" className="back-button">Volver al menú principal</Link>
       </Layout>
     </div>
   );

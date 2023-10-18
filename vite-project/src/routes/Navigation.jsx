@@ -29,6 +29,7 @@ const Navigation = () => {
       path: '/cart',
       element: <CartPage />
     },
+    
   ]);
 
   return (
